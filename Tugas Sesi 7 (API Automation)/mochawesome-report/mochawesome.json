@@ -1,0 +1,217 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-04T05:22:25.368Z",
+    "end": "2025-08-04T05:22:26.513Z",
+    "duration": 1145,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3c964076-70a3-408d-9370-c962aad6f77b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cfee8208-7a04-4066-a8f6-5db346765e03",
+          "title": "DELETE - Delete User",
+          "fullFile": "/Users/user/Desktop/Tugas Sesi 7 (API Automation)/test/Deleteuser.js",
+          "file": "/test/Deleteuser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "delete user successfully",
+              "fullTitle": "DELETE - Delete User delete user successfully",
+              "timedOut": false,
+              "duration": 527,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await fetch(url, {\n    method: 'DELETE',\n    headers\n});\nconsole.log('DELETE Response:', res.status);\nassert.strictEqual(res.status, 204, 'Status code should be 204');",
+              "err": {},
+              "uuid": "a58ed766-3061-49f6-8e70-53681b625a34",
+              "parentUUID": "cfee8208-7a04-4066-a8f6-5db346765e03",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a58ed766-3061-49f6-8e70-53681b625a34"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 527,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "73e005d6-5b8e-4def-9bf6-a2d5863e2d54",
+          "title": "GET - Single User",
+          "fullFile": "/Users/user/Desktop/Tugas Sesi 7 (API Automation)/test/GetUser.js",
+          "file": "/test/GetUser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "get user successfully",
+              "fullTitle": "GET - Single User get user successfully",
+              "timedOut": false,
+              "duration": 98,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await fetch(url, {\n    method: 'GET',\n    headers\n});\nconst data = await res.json();\nassert.strictEqual(res.status, 200, 'Status code should be 200');\nassert.strictEqual(data.data.id, 2, 'User ID should be 2');",
+              "err": {},
+              "uuid": "2a0bad90-abe1-45d5-bb42-bbcabe30c67f",
+              "parentUUID": "73e005d6-5b8e-4def-9bf6-a2d5863e2d54",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a0bad90-abe1-45d5-bb42-bbcabe30c67f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 98,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "684363e6-2433-44f4-b5e7-b4d2443e3a9e",
+          "title": "PATCH - Update User",
+          "fullFile": "/Users/user/Desktop/Tugas Sesi 7 (API Automation)/test/PatchUser.js",
+          "file": "/test/PatchUser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update user successfully",
+              "fullTitle": "PATCH - Update User should update user successfully",
+              "timedOut": false,
+              "duration": 263,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await fetch(url, {\n    method: 'PATCH',\n    headers,\n    body: JSON.stringify({\n        name: \"Fairuza\",\n        job: \"Senior QA Engineer\"\n    })\n});\nconst data = await res.json();\nconsole.log('PATCH Response:', res.status, data);\nassert.strictEqual(res.status, 200, 'Status code should be 200');\nassert.exists(data.updatedAt, 'Response should contain updatedAt timestamp');",
+              "err": {},
+              "uuid": "29f92b6b-64f9-4522-a422-e623f85552bf",
+              "parentUUID": "684363e6-2433-44f4-b5e7-b4d2443e3a9e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "29f92b6b-64f9-4522-a422-e623f85552bf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 263,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bef7fb11-7bd4-4ced-9ee5-75b540b31ac2",
+          "title": "POST - Create User",
+          "fullFile": "/Users/user/Desktop/Tugas Sesi 7 (API Automation)/test/PostUser.js",
+          "file": "/test/PostUser.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a user successfully",
+              "fullTitle": "POST - Create User should create a user successfully",
+              "timedOut": false,
+              "duration": 248,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await fetch(url, {\n    method: 'POST',\n    headers,\n    body: JSON.stringify({\n        name: \"Fairuza\",\n        job: \"QA Engineer\"\n    })\n});\nconst data = await res.json();\nconsole.log('POST Response:', res.status, data);\nassert.strictEqual(res.status, 201, 'Status code should be 201');\nassert.strictEqual(data.name, \"Fairuza\");\nassert.strictEqual(data.job, \"QA Engineer\");\nassert.exists(data.createdAt, 'createdAt timestamp should exist');",
+              "err": {},
+              "uuid": "d6ede2a8-fefc-4f58-9081-0442d182d0a4",
+              "parentUUID": "bef7fb11-7bd4-4ced-9ee5-75b540b31ac2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d6ede2a8-fefc-4f58-9081-0442d182d0a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 248,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
