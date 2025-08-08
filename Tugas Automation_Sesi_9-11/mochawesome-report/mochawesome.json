@@ -1,0 +1,273 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-07T06:39:10.068Z",
+    "end": "2025-08-07T06:39:25.392Z",
+    "duration": 15324,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "405d2cf0-7d71-4f70-a99e-cff1d9a6e687",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0e7e97d4-86ec-4514-81f4-17d0b3c8bd79",
+          "title": "Tugas 1 - Login dan Sort Produk A-Z",
+          "fullFile": "/Users/user/Desktop/saucedemo-automation-latihan/test/task1_login_sort.spec.js",
+          "file": "/test/task1_login_sort.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login berhasil dan sort A-Z",
+              "fullTitle": "Tugas 1 - Login dan Sort Produk A-Z Login berhasil dan sort A-Z",
+              "timedOut": false,
+              "duration": 4337,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();\nawait driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nawait driver.wait(until.urlContains('inventory'), 5000);\nexpect(await driver.getCurrentUrl()).to.include('/inventory.html');\nconst dropdown = await driver.findElement(By.className('product_sort_container'));\nawait dropdown.sendKeys('Name (A to Z)');\n// Tunggu sorting selesai (2 detik)\nawait driver.sleep(2000);\nconst firstItem = await driver.findElement(By.className('inventory_item_name'));\nconst itemName = await firstItem.getText();\nexpect(itemName).to.equal('Test.allTheThings() T-Shirt (Red)');\n// pastikan nama itemnya benar\nawait driver.quit();",
+              "err": {},
+              "uuid": "bb1fe1eb-0a36-4cc0-a5cb-cd42cea43749",
+              "parentUUID": "0e7e97d4-86ec-4514-81f4-17d0b3c8bd79",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bb1fe1eb-0a36-4cc0-a5cb-cd42cea43749"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4337,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "145d003b-1e91-4a3f-aa0f-ba91052c4bd9",
+          "title": "Tugas 2 - Dengan Hooks",
+          "fullFile": "/Users/user/Desktop/saucedemo-automation-latihan/test/task2_login_sort_hooks.spec.js",
+          "file": "/test/task2_login_sort_hooks.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Tugas 2 - Dengan Hooks\"",
+              "fullTitle": "Tugas 2 - Dengan Hooks \"before all\" hook in \"Tugas 2 - Dengan Hooks\"",
+              "timedOut": false,
+              "duration": 811,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "0d469632-7cfc-45c7-a153-f039851645bd",
+              "parentUUID": "145d003b-1e91-4a3f-aa0f-ba91052c4bd9",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Tugas 2 - Dengan Hooks\"",
+              "fullTitle": "Tugas 2 - Dengan Hooks \"after all\" hook in \"Tugas 2 - Dengan Hooks\"",
+              "timedOut": false,
+              "duration": 52,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "fbffe494-8fca-406e-96f5-4ff4f3d6a1f0",
+              "parentUUID": "145d003b-1e91-4a3f-aa0f-ba91052c4bd9",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login dan sort produk",
+              "fullTitle": "Tugas 2 - Dengan Hooks Login dan sort produk",
+              "timedOut": false,
+              "duration": 4279,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nawait driver.wait(until.urlContains('inventory'), 5000);\nexpect(await driver.getCurrentUrl()).to.include('/inventory.html');\nconst dropdown = await driver.findElement(By.className('product_sort_container'));\nawait dropdown.sendKeys('Name (A to Z)');\n// Tambahkan waktu tunggu agar UI update selesai\nawait driver.sleep(2000);\nconst firstItem = await driver.findElement(By.className('inventory_item_name'));\nconst itemName = await firstItem.getText();\nexpect(itemName).to.equal('Test.allTheThings() T-Shirt (Red)');\n// Sesuaikan dengan produk asli",
+              "err": {},
+              "uuid": "83f60776-115a-4cc5-ad06-5797b2e35391",
+              "parentUUID": "145d003b-1e91-4a3f-aa0f-ba91052c4bd9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "83f60776-115a-4cc5-ad06-5797b2e35391"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4279,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "7002007f-7c94-40e9-82b9-3e5f455b4a5c",
+          "title": "Tugas 3 - POM dan Visual Testing",
+          "fullFile": "/Users/user/Desktop/saucedemo-automation-latihan/test/task3_login_sort_pom.spec.js",
+          "file": "/test/task3_login_sort_pom.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Tugas 3 - POM dan Visual Testing\"",
+              "fullTitle": "Tugas 3 - POM dan Visual Testing \"before all\" hook in \"Tugas 3 - POM dan Visual Testing\"",
+              "timedOut": false,
+              "duration": 840,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();\nloginPage = new LoginPage(driver);\ninventoryPage = new InventoryPage(driver);",
+              "err": {},
+              "uuid": "abd26c30-4e9f-4ffc-b718-5776cf9782fb",
+              "parentUUID": "7002007f-7c94-40e9-82b9-3e5f455b4a5c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Tugas 3 - POM dan Visual Testing\"",
+              "fullTitle": "Tugas 3 - POM dan Visual Testing \"after all\" hook in \"Tugas 3 - POM dan Visual Testing\"",
+              "timedOut": false,
+              "duration": 57,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "0cc4d364-a73d-402e-a09b-21465a07fdc1",
+              "parentUUID": "7002007f-7c94-40e9-82b9-3e5f455b4a5c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login dan sort dengan POM",
+              "fullTitle": "Tugas 3 - POM dan Visual Testing Login dan sort dengan POM",
+              "timedOut": false,
+              "duration": 4152,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');\nawait driver.wait(until.urlContains('inventory'), 5000);\nawait inventoryPage.sortByAZ();\nawait driver.sleep(2000);\nconst itemName = await inventoryPage.getFirstItemName();\nexpect(itemName).to.equal('Test.allTheThings() T-Shirt (Red)');",
+              "err": {},
+              "uuid": "31cb2100-7ad5-4ec2-8b9f-d2e5fb5cf092",
+              "parentUUID": "7002007f-7c94-40e9-82b9-3e5f455b4a5c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visual Testing pada halaman Inventory",
+              "fullTitle": "Tugas 3 - POM dan Visual Testing Visual Testing pada halaman Inventory",
+              "timedOut": false,
+              "duration": 789,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const baseline = 'test/visual/baseline.png';\nconst current = 'test/visual/current.png';\nconst diff = 'test/visual/diff.png';\nawait inventoryPage.takeScreenshot(current);\nif (!fs.existsSync(baseline)) {\n  fs.copyFileSync(current, baseline);\n  console.log('Baseline image saved.');\n} else {\n  const mismatch = compareScreenshots(baseline, current, diff);\n  expect(mismatch).to.equal(0, 'Visual mismatch detected!');\n}",
+              "err": {},
+              "uuid": "7a34080f-89fd-4096-9a61-ad7f78fdc97c",
+              "parentUUID": "7002007f-7c94-40e9-82b9-3e5f455b4a5c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "31cb2100-7ad5-4ec2-8b9f-d2e5fb5cf092",
+            "7a34080f-89fd-4096-9a61-ad7f78fdc97c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4941,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
